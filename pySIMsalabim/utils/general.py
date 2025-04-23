@@ -1,9 +1,15 @@
 """Functions for general use"""
 ######### Package Imports #########################################################################
 
-import os, subprocess, uuid, shutil, time
+import os
+import shutil
+import subprocess
+import time
+import uuid
+from subprocess import PIPE, run
+
 import pandas as pd
-from subprocess import run, PIPE
+
 from pySIMsalabim.utils.device_parameters import *
 
 ######### Function Definitions ####################################################################
@@ -283,6 +289,7 @@ def run_simulation_filesafe(sim_type, cmd_pars, session_path, run_mode = False, 
 
     device_parameters = os.path.basename(device_parameters)
     
+    counter=0
     while True:
         # copy the file to the temp folder
         try:
@@ -291,6 +298,10 @@ def run_simulation_filesafe(sim_type, cmd_pars, session_path, run_mode = False, 
         except:
             pass 
         time.sleep(0.002)
+        print("not loaded yet")
+        counter+=1
+        if counter==10:
+            exit()
 
     # check for new layers in the cmd_pars
     newlayers = []
@@ -394,7 +405,8 @@ def run_simulation_filesafe(sim_type, cmd_pars, session_path, run_mode = False, 
                 pass
             # sleep random time to prevent high CPU usage smaller than 5ms
             time.sleep(random.uniform(0.002,0.005))
-            
+            #print("not done yet")
+        #print("done")
         # if os.path.isfile(os.path.join(tmp_folder, os.path.basename(file))):
         #     os.remove(os.path.join(tmp_folder, os.path.basename(file)))
         make_thread_safe_file_copy(os.path.join(session_path, file), tmp_folder)
@@ -407,10 +419,12 @@ def run_simulation_filesafe(sim_type, cmd_pars, session_path, run_mode = False, 
     cmd_line = construct_cmd(sim_type, cmd_pars)
 
     # Run the simulation
+    #print("start simulation")
     if os.name == 'nt':
         result = run(cmd_line, cwd=tmp_folder, stdout=PIPE, check=False, shell=True)
     else:
         result = run([cmd_line], cwd=tmp_folder, stdout=PIPE, check=False, shell=True)
+    #print("finished simulation")
     
     # Check the results of the process using the returncodes and console output
     if result.returncode != 0 and result.returncode != 95 and result.returncode != 3:

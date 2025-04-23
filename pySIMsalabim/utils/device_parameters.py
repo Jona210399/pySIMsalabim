@@ -32,6 +32,7 @@ def load_device_parameters(session_path, dev_par_file_name, default_path=os.path
     List
         List with all the layers
     """
+    
     dev_par = {}
     if run_mode == True:
         # Check if the session specific device parameter file exists. If not, copy the default file to the session folder.
@@ -60,9 +61,13 @@ def load_device_parameters(session_path, dev_par_file_name, default_path=os.path
             else:
                     # Line is either a parameter or leftover comment.
                 par_line = line.split('*')
+                #print("par_line", par_line)
                 if '=' in par_line[0]:  # Line contains a parameter
                     par_split = par_line[0].split('=')
-                    par = ['par', par_split[0].strip(), par_split[1].strip(),par_line[1].strip()] # The element with index 2 contains the actual file name!
+                    if len(par_line)==2:
+                        par = ['par', par_split[0].strip(), par_split[1].strip(),par_line[1].strip()] # The element with index 2 contains the actual file name!
+                    else:
+                        par = ['par', par_split[0].strip(), par_split[1].strip(),""] # The element with index 2 contains the actual file name!
                     if layersSection: # If the line is in the layer section, it contains the name of a layer file, thus add it to the Layers list
                         layers.append(par) # Add sublist to the layers list 
         fp.close()
@@ -345,12 +350,19 @@ def devpar_read_from_txt(fp):
             par_line = line.split('*')
             if '=' in par_line[0]:  # Line contains a parameter
                 par_split = par_line[0].split('=')
-                par = ['par', par_split[0].strip(), par_split[1].strip(),par_line[1].strip()]
+                if len(par_line)==2:
+                    par = ['par', par_split[0].strip(), par_split[1].strip(),par_line[1].strip()]
+                else:
+                    par = ['par', par_split[0].strip(), par_split[1].strip(),""]
                 dev_par_object[index].append(par)
             else:
                 # leftover (*) comment. Add to the description of the last added parameter
-                dev_par_object[index][-1][3] = dev_par_object[index][-1][3] + \
-                    "*" + par_line[1].strip()
+                if len(par_line)==2:
+                    dev_par_object[index][-1][3] = dev_par_object[index][-1][3] + \
+                        "*" + par_line[1].strip()
+                else:
+                    dev_par_object[index][-1][3] = dev_par_object[index][-1][3] + \
+                        "*" + ""
     return dev_par_object
 
 def devpar_write_to_txt(dev_par_object):

@@ -213,9 +213,7 @@ def run_EQE(simss_device_parameters, session_path, spectrum, lambda_min, lambda_
 
     # convert to m
     lambda_array = lambda_array*1e-9
-
     EQE_create_spectrum_files(lambda_array, p, session_path, spectrum, tmp_spectrum_path)
-
     #runs for no monochromatic peak (normal spectrum) and obtains J0 and its err
     # Prepare the arguments for the simulation
     EQE_args = [{'par':'dev_par_file','val':simss_device_parameters},
