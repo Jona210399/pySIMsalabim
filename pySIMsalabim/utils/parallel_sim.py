@@ -1,15 +1,25 @@
 """Functions for general use"""
-######### Package Imports #########################################################################
 
-import os, zipfile, subprocess, uuid, shutil, threading, queue
-import pandas as pd
-from subprocess import run, PIPE
+import os
+import queue
+import shutil
+import threading
+import uuid
 from functools import partial
+from subprocess import PIPE, run
 from threading import Thread
-from pySIMsalabim.utils.general import *
-from pySIMsalabim.utils.device_parameters import *
 
-######### Function Definitions ####################################################################
+import pandas as pd
+
+from pySIMsalabim.utils.device_parameters import (get_inputFile_from_cmd_pars,
+                                                  load_device_parameters,
+                                                  make_basename_file_cmd_pars,
+                                                  make_basename_input_files,
+                                                  store_file_names)
+from pySIMsalabim.utils.general import (construct_cmd, fatal_error_message,
+                                        run_simulation)
+
+
 def parallel_error_message(errorcode):
     """When a 'standard Pascal' fatal error occurs, add the standard error message to be used with parallel which does not read the 
 

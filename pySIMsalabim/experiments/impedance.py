@@ -1,27 +1,21 @@
 
 """Perform impedance simulations"""
-######### Package Imports #########################################################################
 
-import os, sys
+import math
+import os
+import sys
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import math
 import scipy.integrate
-# import pySIMsalabim
-## Import pySIMsalabim, if not successful, add the parent directory to the system path
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.utils import general as utils_gen
-from pySIMsalabim.plots import plot_functions as utils_plot
-from pySIMsalabim.utils.utils import *
-from pySIMsalabim.utils.device_parameters import *
 
-######### Functions #################################################################################
+from pySIMsalabim.plots import plot_functions as utils_plot
+from pySIMsalabim.utils import general as utils_gen
+from pySIMsalabim.utils.device_parameters import load_device_parameters
+from pySIMsalabim.utils.utils import (get_integral_bounds, read_tj_file,
+                                      update_cmd_pars)
+
 
 def create_tVG_impedance(V_0, del_V, G_frac, tVG_name, session_path, f_min, f_max, ini_timeFactor, timeFactor):
     """Create a tVG file for impedance experiments. 

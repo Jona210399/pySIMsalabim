@@ -1,23 +1,15 @@
 """Perform JV hysteresis simulations"""
-######### Package Imports #########################################################################
+import os
+import sys
 
-import os,sys
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-# import pySIMsalabim
-## Import pySIMsalabim, if not successful, add the parent directory to the system path
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.utils import general as utils_gen
+
 from pySIMsalabim.plots import plot_functions as utils_plot
+from pySIMsalabim.utils import general as utils_gen
 from pySIMsalabim.utils.utils import update_cmd_pars
 
-######### Function Definitions ####################################################################
 
 def build_tVG_arrays(Vmin,Vmax,scan_speed,direction,steps,G_frac):
     """Build the Arrays for time, voltage and Generation rate for a hysteresis experiment.

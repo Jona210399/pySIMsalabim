@@ -1,18 +1,17 @@
 """Functions for general use"""
-######### Package Imports #########################################################################
-
 import os
+import random
 import shutil
-import subprocess
 import time
 import uuid
 from subprocess import PIPE, run
 
-import pandas as pd
+from pySIMsalabim.utils.device_parameters import (get_inputFile_from_cmd_pars,
+                                                  load_device_parameters,
+                                                  make_basename_file_cmd_pars,
+                                                  make_basename_input_files,
+                                                  store_file_names)
 
-from pySIMsalabim.utils.device_parameters import *
-
-######### Function Definitions ####################################################################
 
 def fatal_error_message(errorcode):
     """When a 'standard Pascal' fatal error occurs, add the standard error message

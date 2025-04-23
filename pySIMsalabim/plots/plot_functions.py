@@ -1,13 +1,11 @@
 """Functions for plotting"""
-######### Package Imports #########################################################################
-
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
 import numpy as np
+from matplotlib.collections import LineCollection
+
 from pySIMsalabim.plots import plot_def
 
-######### Function Definitions ####################################################################
 
 def plot_result(data, pars, selected, x_key, xlabel, ylabel, xscale, yscale, title, ax, plot_funcs, x_error = [], y_error=[], legend=True, error_fmt='-'):
     """Make a plot for a (sub)set of parameters from a DataFrame. Note: errorbars only work with single x,y functions

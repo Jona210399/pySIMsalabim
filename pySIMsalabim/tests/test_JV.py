@@ -1,19 +1,13 @@
 """ Test the JV module of pySIMsalabim """
 
-######### Package Imports #########################################################################
-import os, sys, uuid 
-import pandas as pd
-import matplotlib.pyplot as plt
-from joblib import Parallel, delayed
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.experiments.JV_steady_state import *
+import os
+import uuid
 
-######### Test Functions #########################################################################
+from joblib import Parallel, delayed
+
+import pySIMsalabim as sim
+from pySIMsalabim.experiments.JV_steady_state import run_SS_JV
+
 
 def test_run_SS_JV():
     """ Test the run_SS_JV function """

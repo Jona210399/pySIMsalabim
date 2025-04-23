@@ -1,5 +1,3 @@
-import os
-import pySIMsalabim
-from pySIMsalabim.install.get_gnu_parallel import *
+from pySIMsalabim.install.get_gnu_parallel import install_GNU_parallel_Linux
 
 install_GNU_parallel_Linux()

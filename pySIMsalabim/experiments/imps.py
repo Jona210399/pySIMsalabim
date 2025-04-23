@@ -1,26 +1,18 @@
 """Perform Intensity-Modulated Photocurrent Spectroscopy (IMPS) simulations"""
-######### Package Imports #########################################################################
+import math
+import os
+import sys
 
-import os, sys
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import math
 import scipy.integrate
-# import pySIMsalabim
-## Import pySIMsalabim, if not successful, add the parent directory to the system path
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.utils import general as utils_gen
-from pySIMsalabim.plots import plot_functions as utils_plot
-from pySIMsalabim.utils.utils import *
-from pySIMsalabim.utils.device_parameters import *
 
-######### Function Definitions ####################################################################
+from pySIMsalabim.plots import plot_functions as utils_plot
+from pySIMsalabim.utils import general as utils_gen
+from pySIMsalabim.utils.utils import (get_integral_bounds, read_tj_file,
+                                      update_cmd_pars)
+
 
 def create_tVG_IMPS(V, G_frac, del_G, tVG_name, session_path, f_min, f_max, ini_timeFactor, timeFactor):
     """Create a tVG file for IMPS experiments.

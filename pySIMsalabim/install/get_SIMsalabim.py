@@ -1,14 +1,20 @@
-import sys, os, subprocess, shutil, json, requests, zipfile, io
-from packaging import version
-from pathlib import Path
+import io
+import json
+import os
+import shutil
+import subprocess
+import sys
+import zipfile
 from getpass import getpass
+from pathlib import Path
 
-######### Parameter Definitions ###################################################################
+import requests
+from packaging import version
+
 cwd = Path.cwd()
 folder_name = 'kostergroup-SIMsalabim-'
 min_fpc_version = '3.2.0'
 
-######### Function Definitions ####################################################################
 def cmd_yes_no_question(question, default = "yes"):
     """_summary_
 

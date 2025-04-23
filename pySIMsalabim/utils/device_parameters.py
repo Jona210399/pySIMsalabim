@@ -1,9 +1,8 @@
 """Functions for processing the device parameters"""
-######### Package Imports #########################################################################
 
-import os, shutil, random
+import os
+import shutil
 
-######### Function Definitions ####################################################################
 
 def load_device_parameters(session_path, dev_par_file_name, default_path=os.path.join('SIMsalabim', 'ZimT'), reset = False, availLayers = [], run_mode = False):
     """Load the device_parameters file and create a List object. Check if a session specific file already exists. 

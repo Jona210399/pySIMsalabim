@@ -1,9 +1,7 @@
 """ Cleaning output files """
-######### Package Imports ###################################################################
+import os
+import shutil
 
-import os, shutil
-
-######### Function Definitions ##############################################################
 
 def clean_up_output(filename_start,path):
     """Delete output files from the simulation

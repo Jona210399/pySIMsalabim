@@ -1,19 +1,14 @@
 """ Test the impedance module of pySIMsalabim """
 
-######### Package Imports #########################################################################
-import os, sys, uuid 
-import pandas as pd
-import matplotlib.pyplot as plt
-from joblib import Parallel, delayed
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.experiments.impedance import *
+import os
+import uuid
 
-######### Test Functions #########################################################################
+from joblib import Parallel, delayed
+
+import pySIMsalabim as sim
+from pySIMsalabim.experiments.impedance import run_impedance_simu
+
+
 def test_run_impedance_simu():
     """ Test the run_impedance_simu function """
     # Set the path to the simulation setup file

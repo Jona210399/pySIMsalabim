@@ -1,5 +1,8 @@
-import os,math
+import math
+import os
+
 import pandas as pd
+
 
 def read_tj_file(session_path, tj_file_name='tj.dat'):
     """ Read relevant parameters for impedance of the tj file

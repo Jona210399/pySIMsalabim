@@ -1,19 +1,14 @@
 """ Test the hysteresis module of pySIMsalabim """
 
-######### Package Imports #########################################################################
-import os, sys, uuid 
-import pandas as pd
-import matplotlib.pyplot as plt
-from joblib import Parallel, delayed
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
-from pySIMsalabim.experiments.hysteresis import *
+import os
+import uuid
 
-######### Test Functions #########################################################################
+import numpy as np
+from joblib import Parallel, delayed
+
+import pySIMsalabim as sim
+from pySIMsalabim.experiments.hysteresis import Hysteresis_JV
+
 
 def test_run_hysteresis_simu():
     """ Test the run_hysteresis_simu function """

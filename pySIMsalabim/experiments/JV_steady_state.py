@@ -1,25 +1,12 @@
 """Perform steady-state JV simulations"""
 
-######### Package Imports #########################################################################
+import os
+import sys
 
-import os, uuid, sys
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy import constants
-# import pySIMsalabim
-## Import pySIMsalabim, if not successful, add the parent directory to the system path
-try :
-    import pySIMsalabim as sim
-except ImportError:
-    # Add the parent directory to the system path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    import pySIMsalabim as sim
 from pySIMsalabim.utils import general as utils_gen
-from pySIMsalabim.utils.parallel_sim import *
+from pySIMsalabim.utils.parallel_sim import run_simulation_parallel
 from pySIMsalabim.utils.utils import update_cmd_pars
 
-######### Functions #################################################################################
 
 def run_SS_JV(simss_device_parameters, session_path, JV_file_name = 'JV.dat', varFile = 'none', G_fracs = [], parallel = False, max_jobs = max(1,os.cpu_count()-1), run_mode = True, **kwargs):
     """

@@ -3,12 +3,14 @@
 ###################################################
 # by Vincent M. Le Corre
 # Package import
-import subprocess,shutil,os,glob,sys,warnings
+import warnings
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from scipy import stats,optimize,constants
 from lmfit import Model
+from scipy import constants
+
 # Don't show warnings
 warnings.filterwarnings("ignore")
 ## Physics constants
@@ -213,7 +215,7 @@ def calc_trap_charge(Vnet,L,eps_r):
     float
         trapped charges in the bulk
     """    
-    n_trap = Vtfl * ( 2 * eps_0 * eps_r)/ (q * L**2)
+    n_trap = Vnet * ( 2 * eps_0 * eps_r)/ (q * L**2)
     return n_trap # m^-3
 
 def calc_Vnet_with_ions(ions,traps,L,eps_r):

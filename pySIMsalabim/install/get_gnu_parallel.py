@@ -3,29 +3,11 @@
 # ------------
 # This script contains a function to download SIMsalabim from GitHub and compile it
 
-######### Package Imports ####################################################################
+import getpass
+import os
+import shutil
+import sys
 
-import os,shutil,sys, getpass
-
-######### Function Definitions ################################################################
-
-# def install_parallel_Linux():
-#     """ Install GNU Parallel on Linux
-#     """   
-#     # check if system is Linux
-#     if os.name != 'posix':
-#         print('This function is only available on Linux systems')
-#         sys.exit()
-    
-#     # check if apt-get is available
-#     if shutil.which("apt-get") is None:
-#         print('apt-get is not available on this system')
-#         sys.exit()
-
-#     # Install GNU Parallel
-#     password = getpass('Sudo password:')
-#     # run the command sudo apt-get install parallel and enter the password and print the output
-#     os.system('echo {} | sudo -S apt-get install parallel'.format(password))
 
 def install_GNU_parallel_Linux(verbose=True):
     """Download GNU parallel if on Linux and install it if possible (requires sudo)

@@ -3,11 +3,9 @@
 # ------------
 # Compile program using fpc
 
-######### Package Imports ###################################################################
+import os
+import subprocess
 
-import os,subprocess
-
-######### Function Definitions ##############################################################
 
 def fpc_prog(prog_name,path2prog,show_term_output=True,force_fpc=True,verbose=True):
     """Compile program using fpc

@@ -1,12 +1,8 @@
 """Draw the energy band diagram"""
-######### Package Imports #########################################################################
-
-import os
 import matplotlib.pyplot as plt
-import pySIMsalabim
-from pySIMsalabim.utils import device_parameters as utils_dev
 
-######### Function Definitions ####################################################################
+import pySIMsalabim
+
 
 def create_width_label(x_left, x_right, x_corr, value, y_min, ax, color):
     """ Create the label to display the width of a layer on the width bar
