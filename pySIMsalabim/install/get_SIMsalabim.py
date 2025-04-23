@@ -349,72 +349,6 @@ def install_fpc_Linux():
     # run the command sudo apt-get install fp-compiler and enter the password and print the output
     os.system('echo {} | sudo -S apt-get install fp-compiler'.format(password))
 
-# def install_parallel_Linux():
-#     """ Install GNU Parallel on Linux
-#     """   
-#     # check if system is Linux
-#     if os.name != 'posix':
-#         print('This function is only available on Linux systems')
-#         sys.exit()
-    
-#     # check if apt-get is available
-#     if shutil.which("apt-get") is None:
-#         print('apt-get is not available on this system')
-#         sys.exit()
-
-#     # Install GNU Parallel
-#     password = getpass('Sudo password:')
-#     # run the command sudo apt-get install parallel and enter the password and print the output
-#     os.system('echo {} | sudo -S apt-get install parallel'.format(password))
-
-# def fpc_prog(cwd,prog_name):
-#     """_summary_
-
-#     Parameters
-#     ----------
-#     cwd : string
-#         Current working directory
-#     prog_name : string
-#         Name of the program to compile
-
-#     """
-#     # Check if fpc installed
-#     if verbose:
-#         print("Checking for Free Pascal Compiler (fpc) package")
-#     if shutil.which("fpc") is not None:
-#         # fpc is installed, check the version and print to stdout.
-#         result = subprocess.run(["fpc", "-iV"], stdout=subprocess.PIPE, text=True)
-#         fpc_version = result.stdout
-
-#         # remove possible newline character
-#         if '\n' in fpc_version:
-#             fpc_version = fpc_version.strip('\n')
-
-#         # fpc version must be larger than min_fpc_version
-#         if version.parse(fpc_version) > version.parse(min_fpc_version):
-#             if verbose:
-#                 print(f'Free Pascal Compiler (fpc) is installed with version >= {min_fpc_version}\n')
-#             # Compile the programs
-#             os.chdir(os.path.join(cwd,prog_name))
-#             os.system(f'fpc {prog_name}.pas')
-#             os.chdir(cwd)
-#         else:
-#             # fpc version requirement not met
-#             print(f'Installed Free Pascal Compiler (fpc) version is {fpc_version}, but must be at least 3.2.0\n')
-#             result = cmd_yes_no_question("Do you want to continue with the pre-compiled binaries (y) or abort and update the Free Pascal Compiler (n) (recommended)", 'no')
-#             if result is True:
-#                 # download assets
-#                 print("\ndownload assets")
-#                 result_assets = get_SIMsalabim_assets(cwd, verbose)
-#                 sys.exit(result_assets)
-#             elif result is False:
-#                 # return and exit
-#                 sys.exit(3)
-#     else:
-#         # fpc is not installed.
-#         print("Free Pascal Compiler is not installed.\n")
-        
-#         sys.exit(3)
 
 def fpc_prog(cwd,prog_name,show_term_output=True,force_fpc=True,verbose=True):
     """Compile program using fpc
@@ -503,9 +437,6 @@ def fpc_prog(cwd,prog_name,show_term_output=True,force_fpc=True,verbose=True):
         
 
 
-  
-######### Script ##################################################################################
 if __name__ == "__main__":
-
     install_SIMsalabim(cwd,verbose=True)
     sys.exit(0)

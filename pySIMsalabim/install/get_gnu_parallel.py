@@ -80,8 +80,7 @@ def install_GNU_parallel_Linux(verbose=True):
 
 
 
-if __name__ == '__main__':
-    
+if __name__ == '__main__':    
     install_GNU_parallel_Linux(verbose=True)
     
 

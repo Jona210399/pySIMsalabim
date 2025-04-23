@@ -803,8 +803,9 @@ def run_CV_simu(zimt_device_parameters, session_path, freq, V_min, V_max, V_step
         
     return result, message
 
-######### Running the function as a standalone script #############################################
-if __name__ == "__main__":
+
+def main():
+
     ## Manual CV input parameters. These are overwritten by command line arguments if provided
     freq = 1e4
     V_min = 0.5
@@ -906,5 +907,7 @@ if __name__ == "__main__":
         print(message)
         sys.exit(1)
 
+if __name__ == "__main__":
+    main()
 
     

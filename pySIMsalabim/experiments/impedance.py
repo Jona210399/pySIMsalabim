@@ -830,8 +830,7 @@ def run_impedance_simu(zimt_device_parameters, session_path, f_min, f_max, f_ste
         
     return result, message
 
-## Running the function as a standalone script
-if __name__ == "__main__":
+def main():
     ## Manual Impedance input parameters. These are overwritten by command line arguments if provided
     f_min = 1e-2 # org 1e-2
     f_max = 1e6 # org 1e6
@@ -942,4 +941,8 @@ if __name__ == "__main__":
     else:
         print(message)
         sys.exit(1)
+
+if __name__ == "__main__":
+    main()
+    
 

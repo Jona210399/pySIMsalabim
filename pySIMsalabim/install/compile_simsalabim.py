@@ -58,17 +58,3 @@ def fpc_prog(prog_name,path2prog,show_term_output=True,force_fpc=True,verbose=Tr
             raise ChildProcessError    
 
     
-
-
-if __name__ == '__main__':
-
-    print('I am not doing anything, please import me in your script'+'\n')
-    
-#     System = platform.system()                  # Operating system
-#     is_windows = (System == 'Windows')          # Check if we are on Windows
-#     if is_windows:
-#         fpc_prog('SimSS', 'c:/Users/lecor/Desktop/GitHub/SIMsalabim/SimSS')
-#         fpc_prog('zimt', 'c:/Users/lecor/Desktop/GitHub/SIMsalabim/ZimT')
-#     else:
-#         fpc_prog('SimSS', '/mnt/c/Users/lecor/Desktop/GitHub/SIMsalabim/SimSS')
-#         fpc_prog('zimt', '/mnt/c/Users/lecor/Desktop/GitHub/SIMsalabim/ZimT')

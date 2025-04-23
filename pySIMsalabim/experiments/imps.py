@@ -513,8 +513,7 @@ def run_IMPS_simu(zimt_device_parameters, session_path, f_min, f_max, f_steps, V
 
     return result, message
 
-## Running the function as a standalone script
-if __name__ == "__main__":
+def main():
     # IMPS input parameters
     f_min = 1e-2 # org 1e-2
     f_max = 5e6# org 1e6
@@ -619,4 +618,10 @@ if __name__ == "__main__":
     else:
         print(message)
         sys.exit(1)
+
+
+        
+if __name__ == "__main__":
+    main()
+    
 

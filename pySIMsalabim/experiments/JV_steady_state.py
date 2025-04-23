@@ -150,9 +150,8 @@ def run_SS_JV(simss_device_parameters, session_path, JV_file_name = 'JV.dat', va
             return 0, 'All JV simulations completed successfully'
         else:
             return results, msg_list    
-    
-## Running the function as a standalone script
-if __name__ == "__main__":
+
+def main():
     ## Manual Steady State input parameters. These are overwritten by command line arguments if provided
     # G_fracs = [0.9, 1.0]
     G_fracs = None
@@ -244,3 +243,7 @@ if __name__ == "__main__":
             if results != 0:
                 for i, msg in enumerate(message):
                     print(f'G_frac: {G_fracs[i]} - {msg}')
+
+if __name__ == "__main__":
+    main()
+    

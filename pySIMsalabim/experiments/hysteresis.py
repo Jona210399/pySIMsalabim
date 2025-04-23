@@ -793,9 +793,9 @@ def Hysteresis_JV(zimt_device_parameters, session_path, UseExpData, scan_speed, 
     
     return result, message, output_vals
 
-## Running the function as a standalone script
-if __name__ == "__main__":
-    ## Manual Hysteresis input parameters. These are overwritten by command line arguments if provided
+
+def main():
+     ## Manual Hysteresis input parameters. These are overwritten by command line arguments if provided
     scan_speed = 1e1 # V/s
     direction = 1 # Scan direction: 1 for Vmin-Vmax-Vmin, -1 for Vmax-Vmin-Vmax
     G_frac = 1 # amount of suns
@@ -911,3 +911,6 @@ if __name__ == "__main__":
         plt.show()
     else:
         print(message) #'Convergence issues, no plot is printed')
+
+if __name__ == "__main__":
+   main()

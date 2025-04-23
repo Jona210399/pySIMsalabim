@@ -352,9 +352,9 @@ def run_EQE(simss_device_parameters, session_path, spectrum, lambda_min, lambda_
         return 1, msg_list
     else:
         return 0, msg_list
-
-if __name__ == '__main__':
-     ## Manual EQE input parameters. These are overwritten by command line arguments if provided
+    
+def main():
+    ## Manual EQE input parameters. These are overwritten by command line arguments if provided
     lambda_min = 280 # Lower limit of the wavelength range in nm
     lambda_max = 1000 # Upper limit of the wavelength range in nm
     lambda_step = 20 # Step size of the wavelength range in nm
@@ -447,3 +447,8 @@ if __name__ == '__main__':
         plt.legend()
 
     plt.show()
+
+
+
+if __name__ == '__main__':
+     main()
