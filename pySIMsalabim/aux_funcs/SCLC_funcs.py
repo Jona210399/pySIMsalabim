@@ -1,8 +1,3 @@
-###################################################
-############### Useful function ###################
-###################################################
-# by Vincent M. Le Corre
-# Package import
 import warnings
 
 import matplotlib.pyplot as plt
@@ -18,9 +13,6 @@ q = constants.value(u'elementary charge')
 eps_0 = constants.value(u'electric constant')
 kb = constants.value(u'Boltzmann constant in eV/K')
 k = constants.value(u'Boltzmann constant')
-#############################################################
-################ SCLC analysis functions ####################
-#############################################################
 
 def MottGurney(V,mu,eps_r,Vbi,L):
     """Mott-Gurney equation typically used to fit single carrier devices JVs to get the mobility.

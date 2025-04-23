@@ -1,8 +1,4 @@
 """Useful helper functions for pySIMsalabim"""
-######### Package Imports #########################################################################
-
-
-######### Function Definitions ####################################################################
 
 def sci_notation(number, sig_fig=2):
     """Make proper scientific notation for graphs
