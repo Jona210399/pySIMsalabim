@@ -25,7 +25,6 @@ setuptools.setup(
     ],
     python_requires='>=3.12',
     install_requires = [
-        'numpy>=1.2, <=2.0',
         'pandas>=1.4',
         'matplotlib>=3.5',
         'jupyterlab>=3.4',
